@@ -1,5 +1,6 @@
 import * as express from 'express';
 import { Router } from 'express-serve-static-core';
+import authenticationController from '../controllers/authentication.controller';
 
 const v1Router = (function buildRouter() {
   const router: Router = express.Router();
@@ -8,11 +9,11 @@ const v1Router = (function buildRouter() {
   // base routes
   router.get("/");
   router.get("/info");
-  router.get("/users/:userId")
+  router.get("/users/:userId");
 
   // admin routes
   router.get("/users");
-  router.post("/users");
+  router.post("/users", authenticationController.register);
   router.patch("/users/:userId");
   router.delete("/users/:userId");
 

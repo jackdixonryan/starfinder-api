@@ -9,7 +9,7 @@ import v1Routes from "./routes/v1";
   const app = express();
   const logger = morgan("dev");
   const cache = apicache.middleware;
-  app.use(cache('5 minutes'));
+  // app.use(cache('5 minutes'));
   app.use(express.json());
   app.use(logger);
 
