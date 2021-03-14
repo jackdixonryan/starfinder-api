@@ -13,6 +13,7 @@ const v1Router = (function buildRouter() {
 
   // admin routes
   router.get("/users");
+  // registration route.
   router.post("/users", authenticationController.register);
   router.patch("/users/:userId");
   router.delete("/users/:userId");

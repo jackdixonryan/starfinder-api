@@ -1,6 +1,7 @@
 import { Request, Response } from "express-serve-static-core";
 import auth from "../services/auth.service";
 
+
 const authenticationController = (function buildController() {
   "use strict";
   return {
@@ -10,6 +11,12 @@ const authenticationController = (function buildController() {
       const { password, ...userFields } = user;
       const token = auth.register(password, userFields);
       res.send(token);
+    },
+    async signIn(req: Request, res: Response) {
+      const { body } = req;
+      const { user } = body;
+      const { password, username } = user;
+      
     }
   }
 })();

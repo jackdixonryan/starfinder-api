@@ -21,6 +21,18 @@ const auth = (function buildAuthModule() {
         expiresIn: 86400,
       });
       return { token, newUser };
+    },
+    login(password: string, username: string) {
+      // query for username
+      const examplePassword = "password";
+      const isValidPassword = bcrypt.compareSync(password, examplePassword);
+      if (!isValidPassword) {
+        return false;
+      } else {
+        const token = jwt.sign({ id: id }, "somerandomasssecret", {
+          expiresIn: 86400
+        })
+      }
     }
   }
 })();
